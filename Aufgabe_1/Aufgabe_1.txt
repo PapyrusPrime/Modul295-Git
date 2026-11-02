@@ -1,0 +1,364 @@
+Auftrag Swagger UI PetStore
+
+API-Dokumentation
+
+Was ist OpenAPI -> ist ein Standard zur Beschreibung von REST - konformen Programmierschnittstellen 
+(Application Programmin Interface -> API)
+
+Was ist Swagger -> Swagger ist eine Sammlung von Open-Source-Werkzeugen, um HTTP-Webservices also (HTTP API und REST-like API) zu entwerfen, zu erstellen, zu dokumentieren und zu nutzen
+Swagger benutzt dazu den Beschreibungsstandard OpenAPI
+
+https://petstore.swagger.io/
+
+
+---------------------------------------------------------------------------------------------------------------
+
+Weitere APIs
+
+
+warum gibt es verschieddene apis?
+
+Es gibt verschiedene APIs, weil sie völlig unterschiedliche Aufgaben erfüllen, für verschiedene Umgebungen gebaut sind und unterschiedliche Sicherheitsanforderungen haben.
+Man kann sich APIs wie verschiedene Arten von Steckern und Anschlüssen in der echten Welt vorstellen: Ein USB-C-Kabel, ein HDMI-Kabel und eine Haushaltssteckdose übertragen alle Energie oder Daten, sind aber für völlig unterschiedliche Geräte optimiert.
+Hier sind die Hauptgründe, warum es so viele verschiedene APIs gibt, unterteilt in drei Kategorien:
+
+1. Unterschiedliche Einsatzzwecke (Architekturstile)
+
+Je nachdem, was eine Anwendung tun muss, wird eine andere API-Technologie gewählt:
+• REST APIs (Der Allrounder): Sie sind der heutige Standard für das Web. Sie nutzen normale HTTP-Befehle und eignen sich perfekt, um Daten zwischen Webseiten, Apps und Servern auszutauschen (z. B. "Gib mir die Liste aller Produkte").
+• GraphQL (Der Effiziente): Wurde von Facebook entwickelt. Statt viele starre Endpunkte zu haben, gibt es nur einen einzigen. Der Client (z. B. eine App) kann exakt diktieren, welche Daten er möchte. Das spart extrem viel Datenvolumen auf Mobilgeräten.
+• gRPC / WebSockets (Die Schnellen): Werden für Echtzeitdaten verwendet. WebSockets halten eine dauerhafte Leitung offen (z. B. für Live-Chats oder Aktienkurse). gRPC wird im Hintergrund genutzt, wenn Server extrem schnell und mit minimaler Verzögerung miteinander kommunizieren müssen.
+• SOAP (Der alte Banken-Standard): Sehr streng, stark reglementiert und hochgradig abgesichert. Man findet sie heute vor allem noch in alten Systemen, bei Banken oder Versicherungen.
+
+2. Unterschiedliche Zugriffskreise (Wer darf rein?)
+
+Nicht jede API ist für die Öffentlichkeit bestimmt:
+• Public APIs (Öffentlich): Jeder Entwickler kann sie nutzen (oft nach einer Registrierung). Beispiele sind die Google Maps API oder die Wetter-API, die Sie in Ihre eigene App einbauen können.
+• Private / Internal APIs (Intern): Diese sind das gut gehütete Geheimnis einer Firma. Sie verbinden nur die internen Systeme (z. B. verbindet die API das Kassensystem im Laden mit der internen Buchhaltungssoftware). Niemand von ausserhalb hat Zugriff.
+• Partner APIs: Diese werden nur für特定 Geschäftspartner freigeschaltet (z. B. eine API zwischen einer Airline und einem Reiseportal wie Booking.com).
+
+3. Technische Vielfalt und Evolution
+
+• Historische Entwicklung: Genau wie Programmiersprachen entwickeln sich APIs weiter. Was vor 15 Jahren modern war (SOAP), wird heute meist durch REST oder GraphQL ersetzt. Dennoch müssen alte APIs oft jahrelang weiterlaufen, weil bestehende Systeme darauf angewiesen sind.
+• Hardware-nahe APIs: Es gibt nicht nur Web-APIs. Betriebssysteme haben eigene APIs (z. B. Windows API oder iOS-APIs), damit Apps auf die Kamera, das GPS oder die Festplatte des Smartphones zugreifen können.
+
+Zusammenfassend: Es gibt nicht die eine perfekte API für alles. Entwickler wählen die API-Art aus, die am besten zu ihrer Programmiersprache, ihrem Sicherheitsbedarf und der benötigten Geschwindigkeit passt.
+Arbeiten Sie gerade an einem Projekt, bei dem Sie sich entscheiden müssen, welche Art von API Sie nutzen oder selbst bauen wollen?
+
+
+Ja, absolut korrekt! Das ist der mit Abstand häufigste und wichtigste Einsatzzweck im modernen Webdesign.
+Man nutzt APIs als Dolmetscher und Brücke zwischen dem Frontend (was der User sieht, z. B. eine Website oder Smartphone-App) und dem Backend (wo die Daten sicher in der Datenbank liegen und die Logik läuft).
+Das Prinzip ist einfach:
+• Das Frontend hat selbst keinen direkten Zugriff auf die Datenbank.
+• Wenn der User z. B. auf „Profil laden“ klickt, schickt das Frontend einen API-Request an das Backend.
+• Das Backend prüft die Rechte, holt die Daten aus der Datenbank und schickt sie als API-Response (meistens als JSON-Text) zurück ans Frontend, welches die Daten dann schön für den User anzeigt.
+Neben dieser Frontend-Backend-Verbindung nutzt man APIs zusätzlich noch, um zwei verschiedene Backends miteinander zu verbinden – beispielsweise wenn ein Onlineshop (Backend 1) automatisch die Kreditkarte über den Bezahldienst Stripe (Backend 2) belasten möchte.
+
+2. JSON und RestClient
+
+RestClient
+
+API = Schnittstelle, Standardisierte Schnittstellen zum Austausch von Daten, so können verschiedene Programme miteinander kommunizieren, (Roboter Beispiel, das andere Programme den Roboter ansteuern können)JSON ist das Datenformat
+
+JSON
+
+JavaScript Object Notation
+Json ist ein Protokoll = man definiert wie man die Daten darstellen möchte
+
+die drei Sachen merken, dann kan man es lesen
+
+[..] Arrays
+{..} Objekt
+"Objektvariable":"Wert"  <- im Hochkomma
+
+Wo wird JSON eingesetzt?
+
+HTTP -> Protokoll -> im Body können Daten sein -> diese Daten sind im JSON Format
+
+Hypertext Transfer Protocol -> HTML
+
+OSI-Schichtenmodell
+
+7 Schichten -> 
+pro Schicht muss es weiter verpackt werden
+Matroschka - Puppe die immer grösser und grösser wird
+
+Anwendung - > JSON -> Mit JSON kommunizieren
+Darstellung -> 
+
+
+
+Was ist ein RestClient?
+
+REST API Testing Tool <- anstatt ein echtes Frontend kann man dieses Test Frontend nutzen
+
+man kann eine CMD curl --help also einen curl auf die http machen
+
+RestClient ist so das man per Knopfdruck arbeiten kann bei CMD muss man mühsam alles eingeben, da ist das RestClient einfacher
+
+Wenn man was im Backend macht, kann man einen Request auf den RestClient machen um zu testen welche Daten rauskommen
+
+--------------------------------------------------------------------------------------------------------------------------
+Aufgabe: RestClient
+
+Was ist der Restclient von Jetbrains?
+
+Unterstützung verschiedener HTTP-Methoden: 
+Der RestClient unterstützt alle gängigen HTTP-Methoden wie GET, POST, PUT, DELETE usw.
+
+
+HTTP-Methoden
+
+Die HTTP-Methoden definieren die Aktion, die ausgeführt werden soll. Die wichtigsten Methoden sind:
+
+    GET: Fordert Daten von einem spezifizierten Ressourcen-URI an. Daten werden in der Anfrage nicht gesendet, was GET ideal für das Abrufen von Daten macht.
+    POST: Sendet Daten zum Erstellen einer neuen Ressource an den Server. Daten werden im Body der Anfrage übermittelt.
+    PUT: Aktualisiert eine bestehende Ressource oder erstellt eine neue Ressource unter der angegebenen URI, falls sie nicht existiert. Ähnlich wie POST, aber idempotent.
+    PATCH: Wird verwendet, um teilweise Änderungen an einer Ressource vorzunehmen. Im Gegensatz zu PUT, der oft die gesamte Ressource ersetzt, erlaubt PATCH das Update spezifischer Felder.
+    DELETE: Löscht die spezifizierte Ressource.
+
+Headers und Body in HTTP-Anfragen
+
+    Headers: HTTP-Headers enthalten Metadaten für die HTTP-Anfrage und Antwort. Sie können Informationen wie den Content-Type (z.B. application/json für JSON-Daten) und Authentifizierungsdetails enthalten.
+    Body: Der Body einer HTTP-Anfrage enthält die zu sendenden Daten. Nicht alle Anfragemethoden haben einen Body (z.B. GET).
+
+Erstellung von HTTP-Anfragen in IntelliJ's RestClient
+
+Um eine HTTP-Anfrage in IntelliJ's RestClient zu erstellen, folgt man diesen allgemeinen Schritten:
+
+    1. Auswahl der Methode: Wähle die HTTP-Methode aus, die für die Aktion, die du ausführen möchtest, geeignet ist.
+    2. URI spezifizieren: Gib den URI der Ressource an, mit der du interagieren möchtest.
+    3. Headers hinzufügen: Füge nach Bedarf spezifische Headers hinzu, z.B. zur Angabe des Content-Types oder zur Authentifizierung.
+    4.Body konfigurieren: Für Methoden wie POST und PUT, füge den erforderlichen Daten-Body hinzu.
+
+
+Aufgabe: 
+
+### GET request to example server
+GET https://pokeapi.co/api/v2/pokemon/ditto
+
+##POST https://edunet.io
+###Content-Type: application/json
+
+###{
+  ###  "name": "New Item",
+  ###  "description": "A new item",
+  ###  "quantity": 50
+  ###  }
+
+### Übung 3: Aktualisieren einer Ressource mit PUT
+PUT https://edunet.io/items/2
+Content-Type: application/json
+
+{
+  "name": "Aktualisiertes Item",
+  "description": "Die Anzahl wurde erfolgreich erhoeht",
+  "quantity": 100
+}
+
+### Übung 4: Teilaktualisierung mit PATCH
+PATCH https://edunet.io
+Content-Type: application/json
+
+{
+  "name": "Updated Item Partial"
+}
+
+### Übung 5: Löschen einer Ressource mit DELETE
+DELETE https://edunet.io
+
+
+-------------------------------------
+ACHTUNG
+
+Wichtig: Verwende das Symbol ### am Anfang einer neuen Zeile, um HTTP-Anfragen in JetBrains RestClient zu trennen. Ohne ### können Requests nicht ausgeführt werden. Dieses Trennzeichen ermöglicht es, mehrere Anfragen in einer Datei klar zu organisieren und nacheinander auszuführen. Achte auf eine Leerzeile vor ### für Lesbarkeit und korrekte Verarbeitung.
+BEISPIEL:
+GET https://api.example.com/data1
+Authorization: Bearer IhrTokenHier
+
+###
+
+POST https//api.example.com/data2
+Content-Type: application/json
+Authorization: Bearer IhrTokenHier
+
+{
+    "name":"Beispielname",
+    "info": "Beispielinfo"
+} 
+
+-------------------------------------
+
+JWT (Json web Tokens)
+JWTs sind eine Methode für die Darstellung von Ansprüchen, die zwischen zwei Parteien sicher übertragen werden können. JWTs können zur Authentifizierung und zur Informationsübertragung verwendet werden.
+
+    Verwendung: Ein JWT wird oft im Authorization-Header als Bearer Token übermittelt, ähnlich wie OAuth 2.0 Tokens.
+
+
+Authentifizierung in HTTP-Anfragen
+
+GET https://requestly.edunet.io/basic-auth/user/passwd
+Authorization: Basic dXNlcjpwYXNzd2Q=
+
+Übung 2: API Key im Header
+
+GET https://requestly.edunet.io/planets?limit=5
+X-API-Key: dummy-api-key-12345
+
+Mit dem API-Key (hier im Beispiel dummy-api-key-12345) meint man eine Art digitalen Ausweis oder ein geheimes Passwort für ein Computerprogramm (die API).
+Der Server nutzt diesen Schlüssel für zwei Dinge:
+1. Identifikation: Er will wissen, wer da gerade anklopft und Daten haben möchte.
+2. Zugriffskontrolle: Er prüft, ob dieser Schlüssel überhaupt die Berechtigung hat, die Planeten-Liste einzusehen.
+
+Übung 3: Bearer Token mit OAuth 2.0
+
+GET https://requestly.edunet.io/bearer/testuser
+Authorization: Bearer any-token-here
+
+Diese Übung macht im Prinzip genau dasselbe wie die Übung mit dem API-Key davor (sie öffnet eine geschützte Tür), nutzt dafür aber das weltweit am häufigsten verwendete Sicherheits-Format im Web: den Bearer-Token.
+Das Wort "Bearer" kommt aus dem Englischen und bedeutet "Überbringer" oder "Inhaber". Ein Bearer-Token funktioniert wie eine Kinokarte oder ein digitales Hotel-Zimmerschlüssel-Ticket:
+• Dem Server ist es in diesem Moment völlig egal, wer du bist.
+• Wer auch immer dieses Ticket vorzeigt (der "Überbringer"), erhält Zutritt.
+
+Der Unterschied zum API-Key aus der vorherigen Übung:
+
+Der Unterschied liegt rein in der Struktur des HTTP-Headers (also wie du den Ausweis auf den Briefumschlag schreibst):
+1. Beim API-Key (Übung 2) hast du ein komplett eigenes, benutzerdefiniertes Feld erfunden (X-API-Key: dummy-api-key-12345).
+2. Beim Bearer-Token (Übung 3) nutzt man das offizielle, weltweite Standard-Feld für Websicherheit: Authorization. Als Wert schreibt man zuerst das Wort Bearer, macht ein Leerzeichen und fügt dann das eigentliche Ticket (den Token-Code) an.
+
+Übung 4: JWT für Authentifizierung
+
+Ziel: Zeige, wie eine Authentifizierung mit JWT (JSON Web Token) funktioniert. Du erhältst ein Token über ein Login und verwendest es dann, um Zugriff auf eine geschützte API zu erhalten.
+
+Im Gegensatz zu Übung 3, bei der ein einfacher Bearer Token verwendet wurde, ist ein JWT ein signiertes Token, das Informationen über dich enthält – zum Beispiel deine Rolle, deinen Benutzernamen oder das Ablaufdatum des Tokens. Diese Infos sind im Token selbst gespeichert und können vom Server ohne Datenbank-Abfrage überprüft werden.
+Aufgabe: Hole dir ein JWT-Token über den Login-Endpunkt. Anschliessend verwende dieses Token in einer zweiten Anfrage, um den Zugriff auf eine geschützte Ressource zu prüfen.
+Schritte:
+
+    Sende eien Post-Anfrage, um dich mit festen Zugangsdaten einzuloggen. Du bekommst ein JWT als Antwort zurück.
+
+    POST https://requestly.edunet.io/jwt/login?username=testuser&password=testpass
+
+    Beispielantwort:
+
+    POST https://requestly.edunet.io/jwt/login?username=testuser&password=testpass
+
+    HTTP/1.1 200 OK
+    date: Tue, 09 Sep 2025 07:08:47 GMT
+    server: uvicorn
+    content-length: 287
+    content-type: application/json
+
+    {
+      "success": true,
+      "data": {
+        "authenticated": true,
+        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInNjb3BlcyI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNzU3NDA1MzI3fQ.9NTjqBLgP-6On6kH_biZ0lnWcjhPG_ItC3zGQqc7kMo",
+        "token_type": "bearer"
+      },
+      "error": null,
+      "meta": null,
+      "links": null
+    }
+
+    Response code: 200 (OK); Time: 8ms (8 ms); Content length: 287 bytes (287 B)
+
+    Jetzt schickst du eine GET-Anfrage an den Verifizierungs-Endpunkt. Füge dein Token als Bearer im Authorization-Header ein:
+
+    GET https://requestly.edunet.io/jwt/verify
+    Authorization: Bearer eyJhbGciOiJIUz...
+
+    Beispielantwort:
+
+    GET https://requestly.edunet.io/jwt/verify
+
+    HTTP/1.1 200 OK
+    date: Tue, 09 Sep 2025 07:13:10 GMT
+    server: uvicorn
+    content-length: 149
+    content-type: application/json
+
+    {
+      "success": true,
+      "data": {
+        "authenticated": true,
+        "user": "testuser",
+        "scopes": [
+          "read",
+          "write"
+        ],
+        "expires": 1757405327
+      },
+      "error": null,
+      "meta": null,
+      "links": null
+    }
+
+    Response code: 200 (OK); Time: 8ms (8 ms); Content length: 149 bytes (149 B)
+
+Überprüfung: 
+
+    Du hast ein Token erhalten und korrekt verwendet.
+
+    Die Antwort zeigt "authenticated": true und deinen Benutzernamen.
+
+    Du bekommst den Statuscode 200 OK.
+
+03 HTTP
+
+Request URL
+
+https://www.test.example.com:8080/items?name=sus
+
+
+Header -> Metadaten -> Zusatzinformationen
+Body ->  Daten (HTML,JSON usw)
+
+Request Arten
+
+GET / POST /PUT / PATCH
+
+
+HTTPS
+
+S = Secure
+SSL / TLS Verschlüsselung
+TLS ist die veraltet Methode
+
+End-Entity Certificate
+
+Ein End-Entity Certificate (auch Leaf-Zertifikat oder Blatt-Zertifikat genannt) ist ein digitales Zertifikat, das am Ende einer Zertifikatskette steht und einen konkreten Nutzer, einen Server, ein Gerät oder eine Anwendung identifiziert
+
+Respond Statuscode
+
+GET https://requestly.edunet.io/books?title=The%20Deep%20End
+Content-Type: application/json
+
+------------------------------------------------------------------------------------------------------------------------
+
+GIT
+
+Versionsverwaltungsprogramm
+
+
+Linus der Erfinder von Linux hat Git erfunden
+
+working directory -> git add -> staging area -> git commit -> local repo -> git push -> remote repo
+
+git fetch und git pull Unterschied?
+
+fetch -> nur das aktuelle Repo updaten
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

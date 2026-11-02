@@ -1,0 +1,14 @@
+{
+  "teamname": "TigerGym",
+  "Fachrichtung": "Kickboxen",
+  "Standort": {
+    "Strasse": "Hauptstrasse 13",
+    "Ort": "Andwil SG",
+    "PLZ,": "9230"
+  },
+  "Coach": {
+"Name": "Luli",
+  "Alter": "46",
+  "Geschlecht": "Männlich"
+ }
+}

@@ -1,0 +1,23 @@
+GET https://requestly.edunet.io/smartphones
+###
+PUT https://requestly.edunet.io/smartphones/1
+###
+DELETE https://requestly.edunet.io/smartphones/1
+###
+GET https://requestly.edunet.io/smartphones/999
+###
+POST https://requestly.edunet.io/status/201/empty
+###
+GET https://requestly.edunet.io/smartphones/1
+###
+GET https://requestly.edunet.io/status/444
+# @no-redirect
+GET https://dell.ch/
+
+###
+# @no-redirect
+GET https://requestly.edunet.io/redirect/permanent
+
+###
+# @no-redirect
+GET https://requestly.edunet.io/redirect

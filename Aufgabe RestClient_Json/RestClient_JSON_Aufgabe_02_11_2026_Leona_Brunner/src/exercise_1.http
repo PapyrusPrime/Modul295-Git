@@ -1,0 +1,37 @@
+### GET request to example server
+GET https://pokeapi.co/api/v2/pokemon/ditto
+
+##POST https://edunet.io
+###Content-Type: application/json
+
+###{
+  ###  "name": "New Item",
+  ###  "description": "A new item",
+  ###  "quantity": 50
+  ###  }
+
+### Übung 3: Aktualisieren einer Ressource mit PUT
+PUT https://edunet.io/items/2
+Content-Type: application/json
+
+{
+  "name": "Aktualisiertes Item",
+  "description": "Die Anzahl wurde erfolgreich erhoeht",
+  "quantity": 100
+}
+
+### Übung 4: Teilaktualisierung mit PATCH
+PATCH https://edunet.io
+Content-Type: application/json
+
+{
+  "name": "Updated Item Partial"
+}
+
+### Übung 5: Löschen einer Ressource mit DELETE
+DELETE https://edunet.io
+
+### Authentifizierung
+GET https://requestly.edunet.io/basic-auth/user/passwd
+Authorization: Basic dXNlcjpwYXNzd2Q=
+
